@@ -1,7 +1,10 @@
-export default function Home() {
+const Home = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      Easy diet
-    </main>
+    <section className={"flex-start flex-col mb-16 mt-16"}>
+      <h1>jhgjhg</h1>
+      <h1>jhgjhg</h1>
+      <h1>jhgjhg</h1>
+    </section>
   );
-}
+};
+export default Home;
