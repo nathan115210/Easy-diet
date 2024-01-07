@@ -3,15 +3,17 @@ import styles from "./styles/grid.module.css";
 import Link from "next/link";
 import Image from "next/image";
 
-export interface GridItemProps {
+export interface MealItemProps {
   image: string;
   title: string;
   creator: string;
   summary: string;
   slug: string;
+  instructions?: string;
+  creator_email?: string;
 }
 
-const GridItem: FC<GridItemProps> = ({
+const MealItem: FC<MealItemProps> = ({
   image,
   creator,
   title,
@@ -19,7 +21,7 @@ const GridItem: FC<GridItemProps> = ({
   slug,
 }) => {
   return (
-    <article className={styles.grid}>
+    <article className={styles.gridItem}>
       <header>
         <div className={styles.image}>
           <Image src={image} alt={title} fill />
@@ -39,4 +41,4 @@ const GridItem: FC<GridItemProps> = ({
   );
 };
 
-export default GridItem;
+export default MealItem;

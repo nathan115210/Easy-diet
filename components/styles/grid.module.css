@@ -84,3 +84,16 @@
     background: linear-gradient(90deg, #fd4715, #f9b241);
     box-shadow: 0 0 12px rgba(242, 100, 18, 0.8);
 }
+
+.main {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.main h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    color: #ddd6cb;
+}

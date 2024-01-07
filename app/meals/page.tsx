@@ -1,11 +1,17 @@
-import type { FC } from "react";
 import styles from "../../components/styles/mealsMainPage.module.css";
 import Link from "next/link";
-import Grid from "@/components/Grid";
+import MealsGrid from "@/components/MealsGrid";
+import { getMeals } from "@/lib/meals";
+import { MealItemProps } from "@/components/MealItem";
+import { Suspense } from "react";
+import LoadingMeals from "@/app/meals/LoadingMeals";
 
-interface MealsPageProps {}
+const Meals = async () => {
+  const meals = (await getMeals()) as MealItemProps[];
+  return <MealsGrid items={meals} />;
+};
 
-const MealsPage: FC<MealsPageProps> = (props) => {
+const MealsPage = async () => {
   return (
     <>
       <header className={styles.header}>
@@ -21,9 +27,9 @@ const MealsPage: FC<MealsPageProps> = (props) => {
           <Link href={"/meals/share"}>Share your own recipe</Link>
         </p>
       </header>
-      <main className={styles.main}>
-        <Grid items={[]} />
-      </main>
+      <Suspense fallback={<LoadingMeals />}>
+        <Meals />
+      </Suspense>
     </>
   );
 };
